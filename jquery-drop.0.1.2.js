@@ -1,14 +1,14 @@
-/*
- * LICENSE: "THE BEER-WARE LICENSE" (Revision 42)
+/**
+ * @author      Gregor Mitzka (gregor.mitzka@gmail.com)
+ * @version     0.1.2
+ * @date        2013-08-06
+ * @licence     beer ware licence
+ * ----------------------------------------------------------------------------
+ * "THE BEER-WARE LICENSE" (Revision 42):
  * <gregor.mitzka@gmail.com> wrote this file. As long as you retain this notice you
  * can do whatever you want with this stuff. If we meet some day, and you think
  * this stuff is worth it, you can buy me a beer in return Gregor Mitzka
- * 
- * @package  		jQuery Drag&Drop-Plugin
- * @author			Gregor Mitzka <gregor.mitzka@gmail.com>
- * @copyright		2013 (C) Gregor Mitzka
- * @version			0.1.1
- * @license			The Beer-Ware License
+ * ----------------------------------------------------------------------------
  */
 (function ( $ ) {
 	$.fn.drop = function ( options, callback ) {
