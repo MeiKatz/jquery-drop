@@ -7,13 +7,16 @@
  * @package  		jQuery Drag&Drop-Plugin
  * @author			Gregor Mitzka <gregor.mitzka@gmail.com>
  * @copyright		2013 (C) Gregor Mitzka
- * @version			0.1
+ * @version			0.1.1
  * @license			The Beer-Ware License
  */
 (function ( $ ) {
-	$.fn.drop = function ( handler, observe ) {
-		if ( typeof handler !== "function" ) {
-			throw "handler must be a function";
+	$.fn.drop = function ( options, callback ) {
+		callback = ( typeof callback !== "function" ) ? ( typeof options !== "function" ) ? false : options : callback;
+		options  = ( typeof options  === "object" )   ? options : {};
+		
+		if ( !callback ) {
+			throw "callback must be a function";
 		}
 
 		var $this = $( this );
@@ -57,7 +60,7 @@
 				};
 				// call the callback function for the drop event
 				// mostly you will not return any value, but if you do, we will recognize it
-				return ( ( ret = handler.call( e.target, data, e ) ) === undefined || !!ret );
+				return ( ( ret = callback.call( e.target, data, e ) ) === undefined || !!ret );
 			},
 
 			"dragleave": function ( e ) {
@@ -70,7 +73,7 @@
 		};
 
 		// observe the list of matched elements by the selector string if observe is true
-		if ( observe === undefined || observe ) {
+		if ( options.hasOwnProperty( "observe" ) && options.observe ) {
 			$this.parent().delegate( this.selector, events );
 		// bind only to the matching elements, that currently exist
 		} else {
