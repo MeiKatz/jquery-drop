@@ -17,4 +17,12 @@ $( "div" ).drop({ "observe": true }, function ( data, event ) {
   // do something
 });
 
+// in the most cases you will use the css classes droppable-hover and droppable-dragging,
+// but you can change the prefix to whatever you want like this:
+$( "div" ).drop({ "prefix": "custom-dropper" }, function ( data, event ) {
+	// your classes for this drop callback will be "custom-dropper-hover" and "custom-dropper-dragging"
+	
+	// do something
+});
+
 ```
